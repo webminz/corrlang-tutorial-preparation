@@ -1,0 +1,24 @@
+endpoint Sales : SERVICE {
+     tech: GRAPH_QL;
+     url: <http://localhost:4011>;
+}
+endpoint Invoices : SERVICE {
+    tech: GRAPH_QL
+    url: <http://localhost:4012>;
+}
+endpoint HR : SERVICE {
+    tech: GRAPH_QL;
+    url: <http://localhost:4013>;
+}
+
+correspondence Backoffice (Sales, Invoices, HR) {
+
+
+}
+
+view Federation (Backoffice) : SERVICE {
+    tech: GRAPH_QL;
+    schema: ("merged.puml", PUML);
+    #schema: ("actual.graphql", GRAPH_QL);
+}
+

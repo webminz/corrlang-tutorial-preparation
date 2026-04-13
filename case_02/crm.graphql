@@ -1,0 +1,21 @@
+type Query {
+  customers: [Customer]
+}
+
+type Customer {
+  name: String!
+  address: [Address]
+  contacted: [ContactPoint]
+}
+
+type Address {
+  street: String
+  city: String
+  houseNo: String
+  postalCode: String
+}
+
+type ContactPoint {
+  agent: Int!
+  called_at: String!
+}

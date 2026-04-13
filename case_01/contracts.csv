@@ -1,0 +1,9 @@
+customer_id,contract_id,email,phone,product,valid_from,valid_until
+270934,4065e9fd-6d77-46bb-8350-570e7b38fdba,mona_b@live.no,95439988,MobilePhone TheftGuard,2023-12-12,
+672292,f8f966b3-154f-40d7-ba8e-ee486f7cef4e,oyvind.b@getmail.no,44561212,PersonalLiability Plus,2023-11-01,
+553526,29cc7bee-9f4b-47e3-a9d0-857ed87a52cc,sissel.i@gmail.com,44563333,CommunityEvent Liability,2022-07-14,
+515862,96de1f97-43c8-46ce-b912-88ac55079c6a,eirik.e@gmail.com,45679999,PetProtect Lifetime,2021-08-02,
+526936,14b1169d-b21c-46b0-81c1-633f398bcaa2,magne_a@outlook.com,43211111,IdentitySecure Plus,2021-01-17,
+979068,816035f7-060f-4680-b0af-6268928389cc,ove_k@gmail.com,45674567,PetProtect Basic,2022-01-01,
+586217,a3b9710f-5dda-474f-8b96-8f3bb8b0e0a6,sandy.l111@live.no,90128989,CommunityEvent Liability,2022-10-21,2023-08-20
+645191,1bb426c4-a0eb-4f4e-b645-ba37f89b072c,eli_larsen@live.no,93457766,RoadShield Premium,2023-08-26,

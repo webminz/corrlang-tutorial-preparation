@@ -1,0 +1,21 @@
+type Query {
+  clients: [Client]
+}
+
+type Client {
+  name: String
+  email: String!
+  address: Address
+  sales: [Sale]
+}
+
+type Address {
+  lines: [String]
+  country: String
+}
+
+type Sale {
+  saleId: ID!
+  amount: Float
+  date: String!
+}

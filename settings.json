@@ -1,0 +1,18 @@
+{
+    "chat.agent.enabled": false,
+    "workbench.cloudChanges.autoResume": "off",
+    "workbench.cloudChanges.continueOn": "off",
+    "workbench.enableExperiments": false,
+    "workbench.startupEditor": "readme",
+    "workbench.welcomePage.walkthroughs.openOnInstall": false,
+    "workbench.commandPalette.showAskInChat": false,
+    "terminal.integrated.env.linux": {
+        "PATH": "/opt/java/openjdk/bin:/usr/local/bin:/usr/bin:/bin:/home/coder/.local/bin",
+        "JAVA_HOME": "/opt/java/openjdk"
+    },
+    "chat.editRequests": "none",
+    "chat.disableAIFeatures": true,
+    "workbench.localHistory.enabled": false,
+    "workbench.editor.restoreEditors": false
+}
+

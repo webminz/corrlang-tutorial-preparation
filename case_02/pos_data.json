@@ -1,0 +1,25 @@
+{
+  "Client": {
+    "name": "Elena Bjørnstad",
+    "email": "elena.bjornstad@mail.no",
+    "address": {
+      "lines": [
+        "Strandgaten 14B",
+        "5013 Bergen"
+      ],
+      "country": "NO"
+    },
+    "sales": [
+      {
+        "saleId": "sale-0891",
+        "amount": 2499.00,
+        "date": "2026-03-12"
+      },
+      {
+        "saleId": "sale-1042",
+        "amount": 849.50,
+        "date": "2026-04-02"
+      }
+    ]
+  }
+}

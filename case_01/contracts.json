@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Contract",
+  "description": "SuperMegaSafe AS cusomers",
+  "type": "object",
+  "required": [
+    "customer_id",
+    "contract_id",
+    "email",
+    "phone",
+    "product",
+    "valid_from",
+    "valid_until"
+  ],
+  "properties": {
+    "customer_id": {
+      "type": "integer",
+      "description": "unique customer id."
+    },
+    "contract_id": {
+      "type": "integer",
+      "description": "unique contract id."
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "The customer's email address using various domains."
+    },
+    "phone": {
+      "type": "string",
+      "pattern": "^[0-9]{8}$",
+      "description": "The phone no. of the customer for the contract"
+    },
+    "product": {
+      "type": "string",
+      "description": "The insurance product of this contract"
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date",
+      "description": "The date from which the contract is valid"
+    },
+    "valid_until": {
+      "oneOf" : [
+        {
+          "type": "string",
+          "format": "date",
+          "description": "The date until which the contract is valid"
+        }, {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}
