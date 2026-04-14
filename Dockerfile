@@ -61,6 +61,7 @@ RUN npm install --prefix /home/coder/endpoints/endpoint1; \
     npm install --prefix /home/coder/endpoints/endpoint3
 COPY --chown=coder:coder config.yaml /home/coder/.config/code-server/config.yaml
 COPY --chown=coder:coder settings.json /home/coder/.local/share/code-server/User/settings.json
+RUN code-server --install-extension bruno-api-client.bruno
 #COPY --chown=coder:coder extension /home/coder/.local/share/code-server/extensions/corrlang
 COPY --chown=coder:coder case_01 /home/coder/project/case_01
 COPY --chown=coder:coder case_02 /home/coder/project/case_02
@@ -68,4 +69,4 @@ COPY --chown=coder:coder case_03 /home/coder/project/case_03
 COPY --chown=coder:coder README.md /home/coder/project/README.md
 ENV PATH=$JAVA_HOME/bin:$PATH
 COPY --chown=coder:coder --chmod=744 startup.sh /home/coder/startup.sh
-CMD ["startup.sh"]
+ENTRYPOINT ["/home/coder/startup.sh"]

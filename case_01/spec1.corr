@@ -13,16 +13,10 @@ correspondence C2C(Customers, Contracts) {
    id (Customers.string, Contracts.string) as string;
    id (Customers.email, Contracts.email) as email;
    id (Customers.integer, Contracts.integer) as integer;
-   id (Customers.Customer, Contracts.Contract) as Customer with { 
-    id (Customers.Customer.email, Contracts.Contract.email) as email; # sync --> check that id would be an error
-    id (Customers.Customer.id, Contracts.Contract.customer_id) as id; # sync
-    id (Customers.Customer."mobile no.", Contracts.Contract.phone) as phone;
-   };
-}
+   id (Customers.Customer, Contracts.Contract) as Customer;
 
 view Merged (C2C) : DATA {
      tech: CSV;
-     schema: ("schema.puml", PUML);
      file: "merged.csv";
 }
 

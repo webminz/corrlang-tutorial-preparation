@@ -18,7 +18,7 @@
       "description": "unique customer id."
     },
     "contract_id": {
-      "type": "integer",
+      "type": "string",
       "description": "unique contract id."
     },
     "email": {

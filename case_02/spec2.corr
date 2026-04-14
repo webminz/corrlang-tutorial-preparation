@@ -1,22 +1,19 @@
 endpoint Crm : DATA {
      tech: GRAPH_QL;
      schema: "../integtest/crm.graphql";
-     file: "../integtest/crm_data.json"
 }
 endpoint Pos : DATA {
      tech: GRAPH_QL;
      schema: "../integtest/pos.graphql"
-     file: "../integtest/pos_data.json"
 }
 
 correspondence Integration (Crm, Pos) {
-
 
 }
 
 view IntegratedData (Integration) : DATA {
     tech: GRAPH_QL;
-    schema: "merged_schema.graphql"
-    file: "merged_data.json"
+    schema: ("merged_schema.puml", PUML);
+    schema: "merged_schema.graphql";
 }
 
