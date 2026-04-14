@@ -1,0 +1,2 @@
+#!/bin/bash
+java -Djava.awt.headless=true -jar /home/coder/.local/bin/plantuml-epl-1.2026.1.jar "$@"

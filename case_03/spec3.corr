@@ -13,6 +13,15 @@ endpoint HR : SERVICE {
 
 correspondence Backoffice (Sales, Invoices, HR) {
 
+     # Default Scalar type identification for GraphQL do not touch ...
+     id (Sales.String, Invoices.String, HR.String) as String;
+     id (Sales.Int, Invoices.Int, HR.Int) as Int;
+     id (Sales.Float, Invoices.Float, HR.Float) as Float;
+     id (Sales.ID, Invoices.ID, HR.ID) as ID;
+     id (Sales.Boolean, Invoices.Boolean, HR.Boolean) as Boolean;
+
+
+     # add your identification rules here ...
 
 }
 

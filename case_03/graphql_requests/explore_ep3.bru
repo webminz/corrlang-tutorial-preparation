@@ -1,0 +1,20 @@
+meta {
+  name: explore_ep3
+  type: graphql
+  seq: 1
+}
+
+post {
+  url: http://localhost:4013
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  query {
+    employees {
+      id
+    }
+  }
+}
+

@@ -1,19 +1,27 @@
 endpoint Crm : DATA {
      tech: GRAPH_QL;
-     schema: "../integtest/crm.graphql";
+     schema: "crm.graphql";
 }
 endpoint Pos : DATA {
      tech: GRAPH_QL;
-     schema: "../integtest/pos.graphql"
+     schema: "pos.graphql"
 }
 
 correspondence Integration (Crm, Pos) {
 
+     # default scalar type identification for GraphQL, dot not change the following lines ...
+     id (Crm.String, Pos.String) as String;
+     id (Crm.Int, Pos.Int) as Int;
+     id (Crm.Float, Pos.Float) as Float;
+     id (Crm.ID, Pos.ID) as ID;
+     id (Crm.Boolean, Pos.Boolean) as Boolean;
+
+     # write your identifications here ...
 }
 
 view IntegratedData (Integration) : DATA {
     tech: GRAPH_QL;
-    schema: ("merged_schema.puml", PUML);
-    schema: "merged_schema.graphql";
+    schema: ("schema_visualization.puml", PUML);
+    schema: "result_schema.graphql";
 }
 

@@ -50,7 +50,6 @@ RUN set -eux; \
     # https://openjdk.java.net/jeps/341
     java -Xshare:dump; \
     chown -R coder:coder $JAVA_HOME;
-# TODO: install java, node, corrl
 USER coder
 ENV PATH=$PATH:/home/coder/.local/bin
 RUN corrl install
@@ -61,7 +60,10 @@ RUN npm install --prefix /home/coder/endpoints/endpoint1; \
     npm install --prefix /home/coder/endpoints/endpoint3
 COPY --chown=coder:coder config.yaml /home/coder/.config/code-server/config.yaml
 COPY --chown=coder:coder settings.json /home/coder/.local/share/code-server/User/settings.json
-RUN code-server --install-extension bruno-api-client.bruno
+COPY --chown=coder:coder --chmod=755 plantuml-epl-1.2026.1.jar /home/coder/.local/bin/plantuml-epl-1.2026.1.jar
+COPY --chown=coder:coder --chmod=755 plantuml /home/coder/.local/bin/plantuml
+RUN code-server --install-extension bruno-api-client.bruno; \
+    code-server --install-extension jeff-hykin.better-csv-syntax
 #COPY --chown=coder:coder extension /home/coder/.local/share/code-server/extensions/corrlang
 COPY --chown=coder:coder case_01 /home/coder/project/case_01
 COPY --chown=coder:coder case_02 /home/coder/project/case_02

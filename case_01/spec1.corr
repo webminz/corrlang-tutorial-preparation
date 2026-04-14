@@ -10,10 +10,17 @@ endpoint Contracts : DATA {
 }
 
 correspondence C2C(Customers, Contracts) {
+   # base type identifcation for JSON schema to not touch
    id (Customers.string, Contracts.string) as string;
    id (Customers.email, Contracts.email) as email;
    id (Customers.integer, Contracts.integer) as integer;
-   id (Customers.Customer, Contracts.Contract) as Customer;
+
+   # We started with identifying the root types of both CSV files but their fields (columns) still differ ...
+   id (Customers.Customer, Contracts.Contract) as Customer with {
+        
+        # ... can you identify fields such that the resulting dataset gets more compact
+   };
+}
 
 view Merged (C2C) : DATA {
      tech: CSV;

@@ -13,6 +13,7 @@
     "chat.editRequests": "none",
     "chat.disableAIFeatures": true,
     "workbench.localHistory.enabled": false,
-    "workbench.editor.restoreEditors": false
+    "workbench.editor.restoreEditors": false,
+    "bruno.defaultCollectionLocation": "/home/coder/project/case_03"
 }
 
