@@ -1,0 +1,18 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/action-connection/route": "/api/action-connection",
+  "/api/actions/route": "/api/actions",
+  "/api/atr-connection/route": "/api/atr-connection",
+  "/api/attributes/route": "/api/attributes",
+  "/api/correspondence/route": "/api/correspondence",
+  "/api/edge-connection/route": "/api/edge-connection",
+  "/api/edges/route": "/api/edges",
+  "/api/method-connection/route": "/api/method-connection",
+  "/api/methods/route": "/api/methods",
+  "/api/node-connection/route": "/api/node-connection",
+  "/api/nodes/route": "/api/nodes",
+  "/api/reset/route": "/api/reset",
+  "/api/schemas/route": "/api/schemas",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/"
+}

@@ -1,0 +1,18 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/action-connection/route": "app/api/action-connection/route.js",
+  "/api/actions/route": "app/api/actions/route.js",
+  "/api/atr-connection/route": "app/api/atr-connection/route.js",
+  "/api/attributes/route": "app/api/attributes/route.js",
+  "/api/correspondence/route": "app/api/correspondence/route.js",
+  "/api/edge-connection/route": "app/api/edge-connection/route.js",
+  "/api/edges/route": "app/api/edges/route.js",
+  "/api/method-connection/route": "app/api/method-connection/route.js",
+  "/api/methods/route": "app/api/methods/route.js",
+  "/api/node-connection/route": "app/api/node-connection/route.js",
+  "/api/nodes/route": "app/api/nodes/route.js",
+  "/api/reset/route": "app/api/reset/route.js",
+  "/api/schemas/route": "app/api/schemas/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js"
+}

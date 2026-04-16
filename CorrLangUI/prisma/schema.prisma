@@ -1,0 +1,103 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// OBJECTS
+model Schema {
+  id  Int   @id @default(autoincrement())
+  title String
+  nodes Node[]
+  actions Action[]
+}
+
+model Node {
+  id  Int   @id @default(autoincrement())
+  title String
+  positionX Int @default(50)
+  positionY Int @default(50)
+  schemaID Int
+
+  attributes Attribute[]
+  nodeCons NodeConnection[]
+  srcEdges Edge[] @relation(name: "source")
+  trgtEdges Edge[] @relation(name: "target")
+  schema Schema @relation(fields: [schemaID], references: [id])
+}
+
+model Edge {
+  id  Int   @id @default(autoincrement())
+  srcNodeID Int
+  trgtNodeID Int
+  refName String
+  lowerBound Int?
+  upperBound Int?
+  isOrdered Boolean @default(false)
+  type Int @default(0)
+
+  edgeCons EdgeConnection[]
+  srcNode Node @relation(name: "source", fields: [srcNodeID], references: [id])
+  trgNode Node @relation(name: "target", fields: [trgtNodeID], references: [id])
+}
+
+model Attribute {
+  id  Int   @id @default(autoincrement())
+  nodeID Int
+  text String
+  type String?
+  
+  atrCons AtrConnection[]
+  node Node @relation(fields: [nodeID], references: [id])
+}
+
+model Action {
+  id Int    @id @default(autoincrement())
+  name String
+  schemaID Int
+  schema Schema @relation(fields: [schemaID], references: [id])
+
+  methods Method[]
+  actCons ActionConnection[]
+}
+
+model Method {
+  id Int    @id @default(autoincrement())
+  name String
+  actionID Int
+  input String?
+  output String?
+
+  methodCons MethodConnection[]
+  action Action @relation(fields: [actionID], references: [id])
+}
+
+// CONNECTIONS
+model NodeConnection {
+  id  Int   @id @default(autoincrement())
+  nodes Node[]
+}
+
+model AtrConnection {
+  id  Int   @id @default(autoincrement())
+  attributes Attribute[]
+}
+
+model EdgeConnection {
+  id  Int   @id @default(autoincrement())
+  edges Edge[]
+}
+model ActionConnection {
+  id  Int   @id @default(autoincrement())
+  actions Action[]
+}
+model MethodConnection {
+  id  Int   @id @default(autoincrement())
+  methods Method[]
+}

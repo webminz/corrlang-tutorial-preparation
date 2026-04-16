@@ -1,0 +1,8 @@
+-- CreateTable
+CREATE TABLE "Action" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL,
+    "method" TEXT NOT NULL,
+    "schemaID" INTEGER NOT NULL,
+    CONSTRAINT "Action_schemaID_fkey" FOREIGN KEY ("schemaID") REFERENCES "Schema" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);

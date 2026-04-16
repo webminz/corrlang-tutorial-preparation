@@ -1,0 +1,8 @@
+-- CreateTable
+CREATE TABLE "EdgeConnection" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "srcEdgeID" INTEGER NOT NULL,
+    "trgtEdgeID" INTEGER NOT NULL,
+    CONSTRAINT "EdgeConnection_srcEdgeID_fkey" FOREIGN KEY ("srcEdgeID") REFERENCES "Edge" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "EdgeConnection_trgtEdgeID_fkey" FOREIGN KEY ("trgtEdgeID") REFERENCES "Edge" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
