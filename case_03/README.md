@@ -23,7 +23,7 @@ The best way to try this out, is by exploring the existing GraphQl endpoints tha
 Behind the scenes, there are three GraphQL endpoint running on ports `4011`, `4012`, and `4013`.
 You can start to interact with them by sending them requests.
 The most user-friendly way is to use the built-in Bruno plugin (look for the Dog icon on the extension bar on the left).
-Here, you will find a pre-made request for each of the three endpoints.
+Open the existing `graphql_requests` request collection in the `case_03` folder, where you will find some pre-made requests.
 You can download the schema via an "_introspection query_" and explore it.
 Try, to modify the `query` in each request, also by adding queires for nested elements to explore the data model.
 
