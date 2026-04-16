@@ -1,0 +1,75 @@
+name: Build and Push
+
+on:
+  push:
+    branches:
+      - interface
+    tags:
+      - "release*"
+
+jobs:
+  build-and-push:
+    name: Build & push per-arch images
+    strategy:
+      matrix:
+        arch: [amd64, arm64]
+        include:
+          - arch: amd64
+            runner: ubuntu-latest
+          - arch: arm64
+            runner: ubuntu-22.04-arm64
+    runs-on: ${{ matrix.runner }}
+
+    env:
+      IMAGE_REPO: myuser/myrepo_y
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Log in to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: myuser
+          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+
+      - name: Build image for ${{ matrix.arch }}
+        run: |
+          IMAGE_TAG="corrlang-experiment-withgui:${{ matrix.arch }}"
+          echo "Building ${IMAGE_TAG}"
+          docker build -t "${IMAGE_TAG}" .
+
+      - name: Push image for ${{ matrix.arch }}
+        run: |
+          IMAGE_TAG="corrlang-experiment-withgui:${{ matrix.arch }}"
+          docker push "${IMAGE_TAG}"
+
+  create-manifest:
+    name: Create & push multi-arch manifest (y)
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    env:
+      IMAGE_REPO: myuser/myrepo_y
+
+    steps:
+      - name: Log in to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: myuser
+          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+
+      - name: Create and push manifest
+        run: |
+          MANIFEST_TAG="corrlang-experiment-withgui:latest"
+          AMD64_TAG="corrlang-experiment-withgui:amd64"
+          ARM64_TAG="corrlang-experiment-withgui:arm64"
+
+          docker manifest create "${MANIFEST_TAG}" \
+            "${AMD64_TAG}" \
+            "${ARM64_TAG}"
+
+          docker manifest annotate "${MANIFEST_TAG}" "${AMD64_TAG}" --arch amd64
+          docker manifest annotate "${MANIFEST_TAG}" "${ARM64_TAG}" --arch arm64
+
+          docker manifest push "${MANIFEST_TAG}"
