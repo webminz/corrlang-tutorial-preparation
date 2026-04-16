@@ -20,7 +20,7 @@ Again, our goal is to align both data models, match identical concepts and creat
 
 Let us start by running CorrLang again, this time, on the specification for this particular excercise:
 ```bash
-corrl apply -f case02/spec2.corr
+corrl apply -f case_02/spec2.corr
 ```
 
 You will see as output:
