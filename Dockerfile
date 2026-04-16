@@ -65,6 +65,14 @@ COPY --chown=coder:coder --chmod=755 plantuml /home/coder/.local/bin/plantuml
 RUN code-server --install-extension bruno-api-client.bruno; \
     code-server --install-extension jeff-hykin.better-csv-syntax
 #COPY --chown=coder:coder extension /home/coder/.local/share/code-server/extensions/corrlang
+COPY --chown=coder:coder CorrLangUI /home/coder/project/CorrLangUI
+# RUN npm install --prefix /home/coder/project/CorrLangUI && \
+#     npm install better-sqlite3 --prefix /home/coder/project/CorrLangUI && \
+#     npm install @prisma/adapter-better-sqlite3 --prefix /home/coder/project/CorrLangUI && \
+#     cd /home/coder/project/CorrLangUI && npx prisma generate
+RUN npm install --prefix /home/coder/project/CorrLangUI && \
+    npm install better-sqlite3 --prefix /home/coder/project/CorrLangUI && \
+    npm install @prisma/adapter-better-sqlite3 --prefix /home/coder/project/CorrLangUI
 COPY --chown=coder:coder case_01 /home/coder/project/case_01
 COPY --chown=coder:coder case_02 /home/coder/project/case_02
 COPY --chown=coder:coder case_03 /home/coder/project/case_03
