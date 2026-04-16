@@ -25,28 +25,23 @@ corrl apply -f case02/spec2.corr
 
 You will see as output:
 ```
-Wrote schema to '/home/coder/project/case_02/schema_visualization.puml' using 'PUML'.
 Wrote schema to '/home/coder/project/case_02/result_schema.graphql' using 'GRAPH_QL'.
 ```
 
 This means, that the `view`-definition was pre-configured to generate a presentation of the _global schema_
-**two times**, one time using using GRAPH_QL and one time using [PlantUML (short PUML)](https://www.plantuml.com/).
-The latter is a popluar library to visualize data models, especially class diagrams.
-You can turn the `.puml` file into something visually by running 
+using GRAPH_QL.
+Upon inspecting, the generated schem you will spot a lot of duplications.
+Your task is to resolve them by definitn `identify`-statements.
+Again you shall use CorrlangUI for this.
 
-```bash
-plantuml case_02/schema_visualization.puml
-```
 
-The above visualization should provide you with a more clear idea what entities could be identified with each other.
 Try adding the identifications to the specification in [`spec2.corr`](./spec2.corr) such that the resulting 
 GraphQL specification does not contain any `_` underscores anymore (The latter 
 are a symptom for "semantic duplicates" in GraphQL, since the latter does not allow
 distinct schema elements with the same name, CorrLang will try to naively disambiguate
 name clashes by namespace-prefixing using `_` as fill-character).
-
-
 In the end you GraphQl schema should look somethink like this...
+
 ```graphql 
 # ...
 

@@ -91,13 +91,20 @@ If we would refer to the `firstname` attribute of that entity, we would have wri
 The final component of the rule is a _new alias name_, i.e. the name under which the resulting merged element should be known 
 in the global view.
 
-Commonality rules can also be nestes as indicated with the `with` statement.
-This means that these rules are applied _after_ the parent rules is applied.
-This is, for example, important when you want to align attributes of object types:
-They require that the owner types are already identified.
+## CorrlangUI
+
+Note that this is somewhat of an experiment, and you are in the _intervention group_! Congratulations :P 
+This means you should do this exercise using the experimental CorrlangUI. 
+You can will find this GUI on <http://localhost:3000> (assuming that you started this container with exposing port `3000` as initially instructed).
+The GUI automatically detects all the correspondences that have been applied through a `corrl apply -f <specfile>` and visualizes the schemas 
+of the respective endpoints in the correspodence graphically.
+You can create identifications simply by dragging lines between the ports of entities.
+When you are done you can press "Export" (on the top right corner), which will render the CorrLang DSL for you.
+Copy these lines into your clipboard, switch back to this tap (on port `8080`)
+and paste them into the `case_01/spec.corr` inside the `correspondence`, re-run `corrl apply` and see what happens.
 
 
-Okay, this was a lot of talking, time to get your "hands on"...
+
 
 
 **Excercise:** Write nested identication rules within the `Customer`-commonality such that there

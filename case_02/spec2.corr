@@ -21,7 +21,6 @@ correspondence Integration (Crm, Pos) {
 
 view IntegratedData (Integration) : DATA {
     tech: GRAPH_QL;
-    schema: ("schema_visualization.puml", PUML);
     schema: "result_schema.graphql";
 }
 
